@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version='1.11'>
+  <model name='agi_drone_depth'>
+    <self_collide>false</self_collide>
+    <static>false</static>
+    <link name='base_link'>
+      <inertial>
+        <pose>0.0059204284500909577 0.00069427743027922716 0.067660953889144296 0 0 0</pose>
+        <mass>0.71109632179532545</mass>
+        <inertia>
+          <ixx>0.0008569123821756436</ixx>
+          <ixy>-8.9181335284426364e-06</ixy>
+          <ixz>0.00025173828658973263</ixz>
+          <iyy>0.0013654169940145861</iyy>
+          <iyz>5.1116560456825936e-06</iyz>
+          <izz>0.0017155652613274289</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://agi_drone_depth/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__CamHolder_collision_1'>
+        <pose>0.051749999999999997 0 0.033006000000000001 -1.5708 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://agi_drone_depth/meshes/CamHolder.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__D435_collision_2'>
+        <pose>0.090137999999999996 -2.297038811547789e-09 0.032380650000004223 -1.1998063267814043 -3.673205103257793e-06 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://agi_drone_depth/meshes/D435.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <collision name='base_link_fixed_joint_lump__T265_collision_3'>
+        <pose>0.087576999999999988 0.0087500335352016078 0.042135667859393752 -1.1998063267814043 -3.673205103257793e-06 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://agi_drone_depth/meshes/T265.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://agi_drone_depth/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.941176474 0.941176474 0.941176474 1</diffuse>
+          <ambient>0.941176474 0.941176474 0.941176474 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__CamHolder_visual_1'>
+        <pose>0.051749999999999997 0 0.033006000000000001 -1.5708 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://agi_drone_depth/meshes/CamHolder.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>1 1 1 1</diffuse>
+          <ambient>1 1 1 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__D435_visual_2'>
+        <pose>0.090137999999999996 -2.297038811547789e-09 0.032380650000004223 -1.1998063267814043 -3.673205103257793e-06 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://agi_drone_depth/meshes/D435.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.877451003 0.877451003 0.877451003 1</diffuse>
+          <ambient>0.877451003 0.877451003 0.877451003 1</ambient>
+        </material>
+      </visual>
+      <visual name='base_link_fixed_joint_lump__T265_visual_3'>
+        <pose>0.087576999999999988 0.0087500335352016078 0.042135667859393752 -1.1998063267814043 -3.673205103257793e-06 -1.5708</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://agi_drone_depth/meshes/T265.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.990196109 1 1 1</diffuse>
+          <ambient>0.990196109 1 1 1</ambient>
+        </material>
+      </visual>
+
+      <sensor name="air_pressure_sensor" type="air_pressure">
+        <always_on>1</always_on>
+        <update_rate>50</update_rate>
+        <air_pressure>
+          <pressure>
+            <noise type="gaussian">
+              <mean>0</mean>
+              <stddev>0.01</stddev>
+            </noise>
+          </pressure>
+        </air_pressure>
+      </sensor>
+      
+      <sensor name="navsat_sensor" type="navsat">
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+      </sensor>
+
+      <sensor name="imu_sensor" type="imu">
+        <always_on>1</always_on>
+        <update_rate>250</update_rate>
+        <imu>
+          <angular_velocity>
+            <x>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.00018665</stddev>
+                <dynamic_bias_stddev>3.8785e-05</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>1000</dynamic_bias_correlation_time>
+              </noise>
+            </x>
+            <y>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.00018665</stddev>
+                <dynamic_bias_stddev>3.8785e-05</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>1000</dynamic_bias_correlation_time>
+              </noise>
+            </y>
+            <z>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.00018665</stddev>
+                <dynamic_bias_stddev>3.8785e-05</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>1000</dynamic_bias_correlation_time>
+              </noise>
+            </z>
+          </angular_velocity>
+          <linear_acceleration>
+            <x>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.00186</stddev>
+                <dynamic_bias_stddev>0.006</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>300</dynamic_bias_correlation_time>
+              </noise>
+            </x>
+            <y>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.00186</stddev>
+                <dynamic_bias_stddev>0.006</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>300</dynamic_bias_correlation_time>
+              </noise>
+            </y>
+            <z>
+              <noise type="gaussian">
+                <mean>0</mean>
+                <stddev>0.00186</stddev>
+                <dynamic_bias_stddev>0.006</dynamic_bias_stddev>
+                <dynamic_bias_correlation_time>300</dynamic_bias_correlation_time>
+              </noise>
+            </z>
+          </linear_acceleration>
+        </imu>
+      </sensor>
+
+    </link>
+    <joint name='JointProp1' type='revolute'>
+      <pose relative_to='base_link'>-0.077499999999999999 -0.099000000000000005 0.097536999999999999 0 0 -0.32507999999999998</pose>
+      <parent>base_link</parent>
+      <child>Prop1</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <!-- <effort>0</effort>
+          <velocity>0</velocity> -->
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Prop1'>
+      <pose relative_to='JointProp1'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>5.9198450525210803e-06 3.5614056773658501e-06 0.0053953008588095604 0 0 0</pose>
+        <mass>0.0035498328801252402</mass>
+        <inertia>
+          <ixx>1.0549168754486699e-06</ixx>
+          <ixy>8.3933618756784902e-11</ixy>
+          <ixz>-8.9159338934323396e-12</ixz>
+          <iyy>1.05549591415489e-06</iyy>
+          <iyz>4.2189355398366998e-11</iyz>
+          <izz>2.0848956548667801e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='Prop1_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://agi_drone_depth/meshes/Prop1.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Prop1_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://agi_drone_depth/meshes/Prop1.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.941176474 0.941176474 0.941176474 1</diffuse>
+          <ambient>0.941176474 0.941176474 0.941176474 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='JointProp2' type='revolute'>
+      <pose relative_to='base_link'>0.077499999999999999 -0.099000000000000005 0.097536999999999999 0 0 -0.73611000000000004</pose>
+      <parent>base_link</parent>
+      <child>Prop2</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <!-- <effort>0</effort>
+          <velocity>0</velocity> -->
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Prop2'>
+      <pose relative_to='JointProp2'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>9.0041247381711397e-07 -3.9948105984774504e-06 0.00539392719966841 0 0 0</pose>
+        <mass>0.0035510513278114299</mass>
+        <inertia>
+          <ixx>1.0558055293675801e-06</ixx>
+          <ixy>-3.90793367295545e-10</ixy>
+          <ixz>-1.7516479115975799e-11</ixz>
+          <iyy>1.05581926418227e-06</iyy>
+          <iyz>-4.2381726372601001e-12</iyz>
+          <izz>2.08607912233101e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='Prop2_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://agi_drone_depth/meshes/Prop2.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Prop2_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://agi_drone_depth/meshes/Prop2.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.941176474 0.941176474 0.941176474 1</diffuse>
+          <ambient>0.941176474 0.941176474 0.941176474 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='JointProp3' type='revolute'>
+      <pose relative_to='base_link'>-0.077499999999999999 0.099000000000000005 0.097536999999999999 0 0 -0.86199000000000003</pose>
+      <parent>base_link</parent>
+      <child>Prop3</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <!-- <effort>0</effort>
+          <velocity>0</velocity> -->
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Prop3'>
+      <pose relative_to='JointProp3'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>4.3120634590221299e-06 -4.2262339830651e-06 0.0053939412271288402 0 0 0</pose>
+        <mass>0.0035510158004231499</mass>
+        <inertia>
+          <ixx>1.0555163721727001e-06</ixx>
+          <ixy>-2.71240939770813e-10</ixy>
+          <ixz>-1.3230980180095599e-11</ixz>
+          <iyy>1.0559825103272499e-06</iyy>
+          <iyz>-4.7313780912118701e-12</iyz>
+          <izz>2.0859583537246998e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='Prop3_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://agi_drone_depth/meshes/Prop3.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Prop3_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://agi_drone_depth/meshes/Prop3.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.941176474 0.941176474 0.941176474 1</diffuse>
+          <ambient>0.941176474 0.941176474 0.941176474 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <joint name='JointProp4' type='revolute'>
+      <pose relative_to='base_link'>0.077499999999999999 0.099000000000000005 0.097536999999999999 0 0 1.5147999999999999</pose>
+      <parent>base_link</parent>
+      <child>Prop4</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+          <!-- <effort>0</effort>
+          <velocity>0</velocity> -->
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+      </axis>
+    </joint>
+    <link name='Prop4'>
+      <pose relative_to='JointProp4'>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>5.8390399830243702e-06 -1.0173521116679801e-05 0.0053961269282210298 0 0 0</pose>
+        <mass>0.0035491157527583702</mass>
+        <inertia>
+          <ixx>1.05491950652979e-06</ixx>
+          <ixy>-3.4417791495664499e-10</ixy>
+          <ixz>3.4752639359546998e-11</ixz>
+          <iyy>1.0551954947555001e-06</iyy>
+          <iyz>-4.9527805525052398e-11</iyz>
+          <izz>2.0846237931520002e-06</izz>
+        </inertia>
+      </inertial>
+      <collision name='Prop4_collision'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://agi_drone_depth/meshes/Prop4.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Prop4_visual'>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://agi_drone_depth/meshes/Prop4.STL</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <diffuse>0.941176474 0.941176474 0.941176474 1</diffuse>
+          <ambient>0.941176474 0.941176474 0.941176474 1</ambient>
+        </material>
+      </visual>
+    </link>
+    <frame name='JointD435' attached_to='CamHolder'>
+      <pose>0.038387999999999999 0.00062534999999999999 0 -2.7706026535970487 1.5707926536359933 -3.1415926535822369</pose>
+    </frame>
+    <frame name='D435' attached_to='JointD435'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='JointT265' attached_to='CamHolder'>
+      <pose>0.035826999999999998 -0.0091296999999999993 0.0087500000000000008 -2.7706026535970487 1.5707926536359933 -3.1415926535822369</pose>
+    </frame>
+    <frame name='T265' attached_to='JointT265'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+    <frame name='JointCamHolder' attached_to='base_link'>
+      <pose>0.051749999999999997 0 0.033006000000000001 -1.5708 0 0</pose>
+    </frame>
+    <frame name='CamHolder' attached_to='JointCamHolder'>
+      <pose>0 0 0 0 0 0</pose>
+    </frame>
+
+
+    <!-- TODO: add GPS plugin -->
+    <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
+        <jointName>JointProp1</jointName>
+        <linkName>Prop1</linkName>
+        <turningDirection>cw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>1000</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.06</momentConstant>
+        <commandSubTopic>command/motor_speed</commandSubTopic>
+        <motorNumber>3</motorNumber>
+        <rotorDragCoefficient>0.000806428</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+    <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
+        <jointName>JointProp2</jointName>
+        <linkName>Prop2</linkName>
+        <turningDirection>ccw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>1000</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.06</momentConstant>
+        <commandSubTopic>command/motor_speed</commandSubTopic>
+        <motorNumber>0</motorNumber>
+        <rotorDragCoefficient>0.000806428</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+    <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
+        <jointName>JointProp3</jointName>
+        <linkName>Prop3</linkName>
+        <turningDirection>ccw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>1000</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.06</momentConstant>
+        <commandSubTopic>command/motor_speed</commandSubTopic>
+        <motorNumber>1</motorNumber>
+        <rotorDragCoefficient>0.000806428</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+    <plugin filename="gz-sim-multicopter-motor-model-system" name="gz::sim::systems::MulticopterMotorModel">
+        <jointName>JointProp4</jointName>
+        <linkName>Prop4</linkName>
+        <turningDirection>cw</turningDirection>
+        <timeConstantUp>0.0125</timeConstantUp>
+        <timeConstantDown>0.025</timeConstantDown>
+        <maxRotVelocity>1000</maxRotVelocity>
+        <motorConstant>8.54858e-06</motorConstant>
+        <momentConstant>0.06</momentConstant>
+        <commandSubTopic>command/motor_speed</commandSubTopic>
+        <motorNumber>2</motorNumber>
+        <rotorDragCoefficient>0.000806428</rotorDragCoefficient>
+        <rollingMomentCoefficient>1e-06</rollingMomentCoefficient>
+        <rotorVelocitySlowdownSim>10</rotorVelocitySlowdownSim>
+        <motorType>velocity</motorType>
+      </plugin>
+
+      
+
+  </model>
+</sdf>
