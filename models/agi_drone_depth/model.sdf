@@ -71,6 +71,7 @@
           <mesh>
             <scale>1 1 1</scale>
             <uri>model://agi_drone_depth/meshes/CamHolder.STL</uri>
+
           </mesh>
         </geometry>
         <material>
@@ -117,7 +118,7 @@
           </pressure>
         </air_pressure>
       </sensor>
-      
+
       <sensor name="navsat_sensor" type="navsat">
         <always_on>1</always_on>
         <update_rate>30</update_rate>
@@ -489,7 +490,7 @@
         <motorType>velocity</motorType>
       </plugin>
 
-      
+
 
   </model>
 </sdf>
